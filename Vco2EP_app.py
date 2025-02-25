@@ -1,9 +1,9 @@
 from flask import Flask, request, render_template
 from flask_cors import cross_origin
-from joblib import load
+import pickle
 
 app = Flask(__name__)
-model = load("Vehicle_CO2_Emission_Predictor.joblib")
+model = pickle.load(open("Vehicle_CO2_Emission_Predictor.pkl", "rb"))
 
 
 @app.route("/")
